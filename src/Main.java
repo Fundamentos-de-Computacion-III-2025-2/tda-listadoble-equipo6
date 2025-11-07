@@ -32,36 +32,36 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @
-                                    "2. Insertar un elemento al final\n"+ //TODO @
-                                    "3. Insertar un elemento en orden\n"+ //TODO @
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @
-                                    "5. Eliminar un elemento al final\n"+ //TODO @
-                                    "6. Eliminar un elemento\n"+ //TODO @
-                                    "7. Buscar un elemento\n"+ //TODO @
-                                    "8. Mostrar los datos de inicio a fin\n"+ //TODO @
-                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @
+                            "1. Insertar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
+                                    "2. Insertar un elemento al final\n"+ //TODO @ Iker Figueroa
+                                    "3. Insertar un elemento en orden\n"+ //TODO @ Junior Delgado
+                                    "4. Eliminar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
+                                    "5. Eliminar un elemento al final\n"+ //TODO @ Ernesto Velazquez
+                                    "6. Eliminar un elemento\n"+ //TODO @ Iker Figueroa
+                                    "7. Buscar un elemento\n"+ //TODO @ Junior Delgado
+                                    "8. Mostrar los datos de inicio a fin\n"+ //TODO @ Parra Ochoa Alex
+                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @ Parra Ochoa Alex
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @
+                        case 1://Insertar un elemento al inicio TODO @ Ernesto Velazquez
                             break;
-                        case 2://Insertar un elemento al final TODO @
+                        case 2://Insertar un elemento al final TODO @ iker figueroa
                             break;
-                        case 3: //Insertar en orden TODO @
+                        case 3: //Insertar en orden TODO @  Junior Delgado
                             break;
-                        case 4: //Eliminar al inicio TODO @
+                        case 4: //Eliminar al inicio TODO @ Ernesto Velazquez
                             break;
-                        case 5: //Eliminar al final TODO @
+                        case 5: //Eliminar al final TODO @ Ernesto Velazquez
                             break;
-                        case 6: //Eliminar TODO @
+                        case 6: //Eliminar TODO @ iker figueroa
                             break;
-                        case 7: //Buscar elemento TODO @
+                        case 7: //Buscar elemento TODO @ Junior Delgado
                             break;
-                        case 8: //MostrarLista TODO @
+                        case 8: //MostrarLista TODO @ Parra Ochoa Alex
                             lista.mostrarInicioFin();
                             break;
-                        case 9: //MostrarLista TODO @
+                        case 9: //MostrarLista TODO @ Parra Ochoa Alex
                             lista.mostrarFinInicio();
                             break;
                         case 10: //Salir
