@@ -58,10 +58,12 @@ public class Main {
                             break;
                         case 7: //Buscar elemento TODO @ Junior Delgado
                             break;
-                        case 8: //MostrarLista TODO @ Parra Alex
+                        case 8: //MostrarLista PARRA
+                            System.out.println("Inicio a Fin");
                             lista.mostrarInicioFin();
                             break;
-                        case 9: //MostrarLista TODO @ Parra Alex
+                        case 9: //MostrarLista PARRA
+                            System.out.println("Fin a Inicio");
                             lista.mostrarFinInicio();
                             break;
                         case 10: //Salir
