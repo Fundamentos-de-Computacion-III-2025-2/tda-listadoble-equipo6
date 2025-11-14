@@ -83,15 +83,17 @@ public class ListaDoble {
     //Eliminar un elemento
     public int eliminarElemento(int elemento) {
 
-        return elemento;
-    }
+        NodoDoble actual = inicio;
+        while (actual.siguiente != null) {
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento) {
 
-        return false;
+                int eliminado = actual.siguiente.dato;
 
-    }
+                if (actual.siguiente == fin) {
+                    fin = actual;
+                }
 
     //Imprimir los datos de la lista doble de inicio a fin
     public void mostrarInicioFin() {
@@ -101,12 +103,43 @@ public class ListaDoble {
             System.out.print(actual.dato +"-->");
             actual = actual.siguiente;
         }
+        throw new RuntimeException("Error: El elemento no se pudo borrar o no existe");
     }
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio() {
 
+
+
+    //Metodo para buscar un elemento
+    public boolean buscarElemento(int elemento){
+        NodoDoble actual = inicio;
+        while (actual != null) {
+            if (actual.dato == elemento) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
     }
 
+    //Imprimir los datos de la lista doble de inicio a fin
+    public void mostrarInicioFin() {
+        NodoDoble actual = inicio; //movemos el puntero al inicio de la lista
+        System.out.println();  //con este print creamos una separacion en la siguiente linea al volver a imprimir
+        while (actual != null) { //mientras el puntero no haya pasado al final de la lista
+            System.out.print(actual.dato + " --> "); //se imprime el elemento que el puntero esta seleccionando
+            actual = actual.siguiente; //despues de imprimir, avanza al siguiente nodo
+        } //salimos del bucle cuando ya recorrimos la lista
+    }
 
+    //Imprimir los datos de la lista doble de fin a inicio
+    public void mostrarFinInicio() {
+        NodoDoble actual = fin;  //movemos el puntero al final de la lista
+        System.out.println(); //con este print creamos una separacion en la siguiente linea al volver a imprimir
+        while (actual != null) { //mientras el puntero no haya pasado al final (inicio) de la lista
+            System.out.print(actual.dato + " --> "); //se imprime el elemento que el puntero esta seleccionando
+            actual = actual.anterior; //despues de imprimir, retrocede al nodo anterior
+        } //salimos del bucle cuando ya recorrimos la lista
+    }
 }
