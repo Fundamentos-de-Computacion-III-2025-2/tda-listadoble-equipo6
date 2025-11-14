@@ -24,6 +24,16 @@ public class ListaDoble {
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
+        if(listaVacia()){
+            fin= new NodoDoble(dato);
+
+        }
+        else {
+            fin.siguiente= new NodoDoble(dato);
+            new NodoDoble(dato).anterior=fin;
+
+
+        }
 
     }
 
@@ -52,9 +62,48 @@ public class ListaDoble {
 
     //Eliminar un elemento
     public int eliminarElemento(int elemento){
+        if (listaVacia()){
+            throw new RuntimeException("Error: lista vacia");
+        }
+        // Caso 1: el elemento está al inicio
+        if (inicio.dato == elemento) {
+            int eliminado = inicio.dato;
+            inicio = inicio.siguiente;
 
-        return elemento;
+            // si la lista queda vacía, fin debe ser null
+            if (inicio == null) {
+                fin = null;
+            }
+
+            return eliminado;
+        }
+
+        // Caso 2: buscar en el resto de la lista
+        NodoDoble actual = inicio;
+        while (actual.siguiente != null) {
+
+            if (actual.siguiente.dato == elemento) {
+
+                int eliminado = actual.siguiente.dato;
+
+                if (actual.siguiente == fin) {
+                    fin = actual;
+                }
+
+                actual.siguiente = actual.siguiente.siguiente;
+
+                return eliminado;
+            }
+
+            actual = actual.siguiente;
+        }
+
+        // No se encontró
+        throw new RuntimeException("Error: El elemento no se pudo borrar o no existe");
     }
+
+
+
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento){

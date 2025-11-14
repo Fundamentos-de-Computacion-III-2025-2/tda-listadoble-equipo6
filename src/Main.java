@@ -29,6 +29,7 @@ public class Main {
             int elemento;
             ListaDoble lista = new ListaDoble();
 
+
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -47,6 +48,9 @@ public class Main {
                         case 1://Insertar un elemento al inicio TODO @ Ernesto Velazquez
                             break;
                         case 2://Insertar un elemento al final TODO @ iker figueroa
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                    "Ingresa el número a insertar al final:"));
+                            lista.insertarFinal(elemento);
                             break;
                         case 3: //Insertar en orden TODO @  Junior Delgado
                             break;
@@ -55,6 +59,19 @@ public class Main {
                         case 5: //Eliminar al final TODO @ Ernesto Velazquez
                             break;
                         case 6: //Eliminar TODO @ iker figueroa
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a eliminar:"));
+
+                                int eliminado = lista.eliminarElemento(elemento);
+
+                                JOptionPane.showMessageDialog(null,
+                                        "Elemento eliminado: " + eliminado);
+
+                            } catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null,
+                                        "No se pudo eliminar: " + e.getMessage());
+                            }
                             break;
                         case 7: //Buscar elemento TODO @ Junior Delgado
                             break;
