@@ -65,12 +65,10 @@ public class ListaDoble {
         if (listaVacia()){
             throw new RuntimeException("Error: lista vacia");
         }
-        // Caso 1: el elemento está al inicio
         if (inicio.dato == elemento) {
             int eliminado = inicio.dato;
             inicio = inicio.siguiente;
 
-            // si la lista queda vacía, fin debe ser null
             if (inicio == null) {
                 fin = null;
             }
@@ -78,7 +76,6 @@ public class ListaDoble {
             return eliminado;
         }
 
-        // Caso 2: buscar en el resto de la lista
         NodoDoble actual = inicio;
         while (actual.siguiente != null) {
 
@@ -94,11 +91,8 @@ public class ListaDoble {
 
                 return eliminado;
             }
-
             actual = actual.siguiente;
         }
-
-        // No se encontró
         throw new RuntimeException("Error: El elemento no se pudo borrar o no existe");
     }
 

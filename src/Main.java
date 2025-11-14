@@ -70,7 +70,7 @@ public class Main {
 
                             } catch (RuntimeException e) {
                                 JOptionPane.showMessageDialog(null,
-                                        "No se pudo eliminar: " + e.getMessage());
+                                        "Error: No se pudo eliminar: " + e.getMessage());
                             }
                             break;
                         case 7: //Buscar elemento TODO @ Junior Delgado
