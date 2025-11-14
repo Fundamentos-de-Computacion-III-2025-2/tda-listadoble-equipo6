@@ -16,9 +16,17 @@ public class ListaDoble {
         }
     }
 
-    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
+    //Metodo para agregar un NodoDoble al Inicio de la Lista Doble ernesto
     public void insertarInicio(int dato) {
-
+        if (listaVacia()) {
+          NodoDoble nuevo = new NodoDoble(dato);
+          inicio = nuevo;
+          fin = nuevo;
+        } else {
+            NodoDoble nuevo = new NodoDoble(dato, inicio, null);
+            inicio.anterior = nuevo;
+            inicio = nuevo;
+        }
 
     }
 
@@ -33,55 +41,43 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
-    public void insertarEnOrden(int dato){
-        NodoDoble nuevo = new NodoDoble(dato);
+    public void insertarEnOrden(int dato) {
 
-        if (inicio==null){
-            inicio = fin = nuevo;
-        } else if (dato < inicio.dato){
-            nuevo.siguiente = inicio;
-            inicio.anterior = nuevo;
-            inicio = nuevo;
-        } else {
-            NodoDoble actual = inicio;
-            while (actual != null && actual.dato < dato){
-                actual = actual.siguiente;
-            }
-            if (actual == null){ //Insertar al final
-                fin.siguiente = nuevo;
-                nuevo.anterior = fin;
-                fin = nuevo;
-            } else { //Insertar antes de actual
-                NodoDoble anterior = actual.anterior;
-                anterior.siguiente = nuevo;
-                nuevo.anterior = anterior;
-                nuevo.siguiente = actual;
-                actual.anterior = nuevo;
-            }
-        }
     }
 
 
-    //Eliminar al inicio
+    //Eliminar al inicio Ernesto
     public int eliminarInicio() {
-        if (inicio == null) {
+        if (listaVacia()) {
             return -1;
         }
-            int elemento = inicio.dato;
-            if (inicio.dato == fin.dato) {
-                inicio = null;
-                fin = null;
+        int datoEliminado = inicio.dato;
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
         } else {
             inicio = inicio.siguiente;
             inicio.anterior = null;
-    }
-        return elemento;
+        }
+        return datoEliminado;
     }
 
-    //Eliminar al final
+    //Eliminar al final ernesto
     public int eliminarFinal() {
+        if (listaVacia()) {
+            return -1;
+        }
 
-        return -1;
+        int datoEliminado = fin.dato;
+
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        } else {
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+        return datoEliminado;
     }
 
     //Eliminar un elemento
@@ -90,7 +86,8 @@ public class ListaDoble {
         NodoDoble actual = inicio;
         while (actual.siguiente != null) {
 
-            if (actual.siguiente.dato == elemento) {
+    //Metodo para buscar un elemento
+    public boolean buscarElemento(int elemento) {
 
                 int eliminado = actual.siguiente.dato;
 
@@ -98,15 +95,19 @@ public class ListaDoble {
                     fin = actual;
                 }
 
-                actual.siguiente = actual.siguiente.siguiente;
-
-                return eliminado;
-            }
+    //Imprimir los datos de la lista doble de inicio a fin
+    public void mostrarInicioFin() {
+        NodoDoble actual = inicio;
+        System.out.println();
+        while (actual != null) {
+            System.out.print(actual.dato +"-->");
             actual = actual.siguiente;
         }
         throw new RuntimeException("Error: El elemento no se pudo borrar o no existe");
     }
 
+    //Imprimir los datos de la lista doble de fin a inicio
+    public void mostrarFinInicio() {
 
 
 

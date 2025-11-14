@@ -9,81 +9,86 @@ public class Main {
         o devolver un String para después imprimirlo desde aquí o mostrarlo en un JOptionPane aquí en Main.java).
          */
 
-        /*
-        Pueden usar JOptionPane o hacer la interfaz por consola.
-        Deben definir un menú con las siguientes opciones:
-                "1. Insertar un elemento al inicio\n"+
-                "2. Insertar un elemento al final\n"+
-                "3. Insertar un elemento en orden\n"+
-                "4. Eliminar un elemento al inicio\n"+
-                "5. Eliminar un elemento al final\n"+
-                "6. Eliminar un elemento\n"+
-                "7. Buscar un elemento\n"+
-                "8. Mostrar los datos de inicio a fin\n"+
-                "9. Mostrar los datos de fin a inicio\n"+
-                "10. Salir\n","Menú de opciones",3));
-        */
-        public static void main(String[] args) {
+    /*
+    Pueden usar JOptionPane o hacer la interfaz por consola.
+    Deben definir un menú con las siguientes opciones:
+            "1. Insertar un elemento al inicio\n"+
+            "2. Insertar un elemento al final\n"+
+            "3. Insertar un elemento en orden\n"+
+            "4. Eliminar un elemento al inicio\n"+
+            "5. Eliminar un elemento al final\n"+
+            "6. Eliminar un elemento\n"+
+            "7. Buscar un elemento\n"+
+            "8. Mostrar los datos de inicio a fin\n"+
+            "9. Mostrar los datos de fin a inicio\n"+
+            "10. Salir\n","Menú de opciones",3));
+    */
+    public static void main(String[] args) {
 
-            int opcion = 0;
-            int elemento;
-            ListaDoble lista = new ListaDoble();
+        int opcion = 0;
+        int elemento;
+        ListaDoble lista = new ListaDoble();
 
-
-            do {
-                try {
-                    opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //
-                                    "2. Insertar un elemento al final\n"+ //
-                                    "3. Insertar un elemento en orden\n"+ //
-                                    "4. Eliminar un elemento al inicio\n"+ //
-                                    "5. Eliminar un elemento al final\n"+ //
-                                    "6. Eliminar un elemento\n"+ //
-                                    "7. Buscar un elemento\n"+ //
-                                    "8. Mostrar los datos de inicio a fin\n"+ //
-                                    "9. Mostrar los datos de fin a inicio\n"+ //
-                                    "10. Salir\n",
-                            "Menú de opciones", 3));
-                    switch (opcion) {
-                        case 1://Insertar un elemento al inicio
-                            break;
-                        case 2://Insertar un elemento al final
-                            break;
-                        case 3: //Insertar en orden
-                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a ordenar"));
-                            lista.insertarEnOrden(elemento);
-                            break;
-                        case 4: //Eliminar al inicio
-                            break;
-                        case 5: //Eliminar al final
-                            break;
-                        case 6: //Eliminar
-                            break;
-                        case 7: //Buscar elemento
-                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a buscar"));
-                            boolean encontrado = lista.buscarElemento(elemento);
-                            if (encontrado) {
-                                JOptionPane.showMessageDialog(null, "Elemento encontrado");
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Elemento no encontrado");
-                            }
-                            break;
-                        case 8: //MostrarLista
-                            lista.mostrarInicioFin();
-                            break;
-                        case 9: //MostrarLista
-                            lista.mostrarFinInicio();
-                            break;
-                        case 10: //Salir
-                            JOptionPane.showMessageDialog(null, "Programa Finalizado");
-                            break;
-                        default:
-                            JOptionPane.showMessageDialog(null, "Opción Incorrecta");
-                    }
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "error" + e.getMessage(),
-                            "Error", JOptionPane.ERROR_MESSAGE);
+        do {
+            try {
+                opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "1. Insertar un elemento al inicio\n" +
+                                "2. Insertar un elemento al final\n" + //TODO @ Iker Figueroa
+                                "3. Insertar un elemento en orden\n" + //TODO @ Junior Delgado
+                                "4. Eliminar un elemento al inicio\n" +
+                                "5. Eliminar un elemento al final\n" +
+                                "6. Eliminar un elemento\n" + //TODO @ Iker Figueroa
+                                "7. Buscar un elemento\n" + //TODO @ Junior Delgado
+                                "8. Mostrar los datos de inicio a fin\n" + //TODO @ Parra Ochoa Alex
+                                "9. Mostrar los datos de fin a inicio\n" + //TODO @ Parra Ochoa Alex
+                                "10. Salir\n",
+                        "Menú de opciones", 3));
+                switch (opcion) {
+                    case 1:
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el dato al inicio"));
+                        lista.insertarInicio(elemento);
+                        JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al inicio");
+                        break;
+                    case 2://Insertar un elemento al final TODO @ iker figueroa
+                        break;
+                    case 3: //Insertar en orden TODO @  Junior Delgado
+                        break;
+                    case 4:
+                        elemento = lista.eliminarInicio();
+                        if (elemento != -1) {
+                            JOptionPane.showMessageDialog(null, "Elemento " + elemento + " eliminado al inicio");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La lista esta vacia, no se puede eliminar ");
+                        }
+                        break;
+                    case 5:
+                        elemento = lista.eliminarFinal();
+                        if (elemento != -1) {
+                            JOptionPane.showMessageDialog(null, "Elemento " + elemento + " eliminado al final");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La lista esta vacia, no se puede eliminar ");
+                        }
+                        break;
+                    case 6: //Eliminar TODO @ iker figueroa
+                        break;
+                    case 7: //Buscar elemento TODO @ Junior Delgado
+                        break;
+                    case 8: //MostrarLista TODO @ Parra Ochoa Alex
+                        lista.mostrarInicioFin();
+                        break;
+                    case 9: //MostrarLista TODO @ Parra Ochoa Alex
+                        lista.mostrarFinInicio();
+                        break;
+                    case 10: //Salir
+                        JOptionPane.showMessageDialog(null, "Programa Finalizado");
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Opción Incorrecta");
                 }
-            } while (opcion != 10);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error" + e.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } while (opcion != 10);
     }
 }
