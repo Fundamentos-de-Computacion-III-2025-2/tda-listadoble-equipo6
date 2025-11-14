@@ -34,11 +34,11 @@ public class Main {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
-                                    "2. Insertar un elemento al final\n"+ //TODO @ Iker Figueroa
+                                    "2. Insertar un elemento al final\n"+
                                     "3. Insertar un elemento en orden\n"+ //TODO @ Junior Delgado
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
                                     "5. Eliminar un elemento al final\n"+ //TODO @ Ernesto Velazquez
-                                    "6. Eliminar un elemento\n"+ //TODO @ Iker Figueroa
+                                    "6. Eliminar un elemento\n"+
                                     "7. Buscar un elemento\n"+ //TODO @ Junior Delgado
                                     "8. Mostrar los datos de inicio a fin\n"+ //TODO @ Parra Ochoa Alex
                                     "9. Mostrar los datos de fin a inicio\n"+ //TODO @ Parra Ochoa Alex
@@ -47,7 +47,7 @@ public class Main {
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio TODO @ Ernesto Velazquez
                             break;
-                        case 2://Insertar un elemento al final TODO @ iker figueroa
+                        case 2://Insertar un elemento al final
                             elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                     "Ingresa el número a insertar al final:"));
                             lista.insertarFinal(elemento);
@@ -58,7 +58,7 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @ Ernesto Velazquez
                             break;
-                        case 6: //Eliminar TODO @ iker figueroa
+                        case 6: //Eliminar
                             try {
                                 elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                         "Ingresa el elemento a eliminar:"));
