@@ -29,15 +29,16 @@ public class Main {
             int elemento;
             ListaDoble lista = new ListaDoble();
 
+
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
-                                    "2. Insertar un elemento al final\n"+ //TODO @ Iker Figueroa
+                                    "2. Insertar un elemento al final\n"+
                                     "3. Insertar un elemento en orden\n"+ //TODO @ Junior Delgado
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
                                     "5. Eliminar un elemento al final\n"+ //TODO @ Ernesto Velazquez
-                                    "6. Eliminar un elemento\n"+ //TODO @ Iker Figueroa
+                                    "6. Eliminar un elemento\n"+
                                     "7. Buscar un elemento\n"+ //TODO @ Junior Delgado
                                     "8. Mostrar los datos de inicio a fin\n"+ //HECHO POR PARRA OCHOA ALEX
                                     "9. Mostrar los datos de fin a inicio\n"+ //HECHO POR PARRA OCHOA ALEX
@@ -46,7 +47,10 @@ public class Main {
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio TODO @ Ernesto Velazquez
                             break;
-                        case 2://Insertar un elemento al final TODO @ iker figueroa
+                        case 2://Insertar un elemento al final
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                    "Ingresa el número a insertar al final:"));
+                            lista.insertarFinal(elemento);
                             break;
                         case 3: //Insertar en orden TODO @  Junior Delgado
                             break;
@@ -54,7 +58,20 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @ Ernesto Velazquez
                             break;
-                        case 6: //Eliminar TODO @ iker figueroa
+                        case 6: //Eliminar
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a eliminar:"));
+
+                                int eliminado = lista.eliminarElemento(elemento);
+
+                                JOptionPane.showMessageDialog(null,
+                                        "Elemento eliminado: " + eliminado);
+
+                            } catch (RuntimeException e) {
+                                JOptionPane.showMessageDialog(null,
+                                        "Error: No se pudo eliminar: " + e.getMessage());
+                            }
                             break;
                         case 7: //Buscar elemento TODO @ Junior Delgado
                             break;
