@@ -53,8 +53,28 @@ public class ListaDoble {
     //Eliminar un elemento
     public int eliminarElemento(int elemento) {
 
-        return elemento;
+        NodoDoble actual = inicio;
+        while (actual.siguiente != null) {
+
+            if (actual.siguiente.dato == elemento) {
+
+                int eliminado = actual.siguiente.dato;
+
+                if (actual.siguiente == fin) {
+                    fin = actual;
+                }
+
+                actual.siguiente = actual.siguiente.siguiente;
+
+                return eliminado;
+            }
+            actual = actual.siguiente;
+        }
+        throw new RuntimeException("Error: El elemento no se pudo borrar o no existe");
     }
+
+
+
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento) {
