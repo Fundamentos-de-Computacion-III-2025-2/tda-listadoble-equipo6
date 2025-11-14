@@ -33,15 +33,49 @@ public class ListaDoble {
     número mayor al elemento que se encuentre en la lista, si no se encuentar un dato mayor
     se inserta al final */
 
-    public void insertarEnOrden(int dato) {
+    public void insertarEnOrden(int dato){
+        NodoDoble nuevo = new NodoDoble(dato);
 
+        if (inicio==null){
+            inicio = fin = nuevo;
+        } else if (dato < inicio.dato){
+            nuevo.siguiente = inicio;
+            inicio.anterior = nuevo;
+            inicio = nuevo;
+        } else {
+            NodoDoble actual = inicio;
+            while (actual != null && actual.dato < dato){
+                actual = actual.siguiente;
+            }
+            if (actual == null){ //Insertar al final
+                fin.siguiente = nuevo;
+                nuevo.anterior = fin;
+                fin = nuevo;
+            } else { //Insertar antes de actual
+                NodoDoble anterior = actual.anterior;
+                anterior.siguiente = nuevo;
+                nuevo.anterior = anterior;
+                nuevo.siguiente = actual;
+                actual.anterior = nuevo;
+            }
+        }
     }
 
 
     //Eliminar al inicio
     public int eliminarInicio() {
-
-        return -1;
+        if (inicio == null) {
+            return -1;
+        }
+            int elemento = inicio.dato;
+            if (inicio.dato == fin.dato) {
+                inicio = null;
+                fin = null;
+        } else {
+            inicio = inicio.siguiente;
+            inicio.anterior = null;
+    }
+        return elemento;
     }
 
     //Eliminar al final
@@ -77,10 +111,15 @@ public class ListaDoble {
 
 
     //Metodo para buscar un elemento
-    public boolean buscarElemento(int elemento) {
-
+    public boolean buscarElemento(int elemento){
+        NodoDoble actual = inicio;
+        while (actual != null) {
+            if (actual.dato == elemento) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
         return false;
-
     }
 
     //Imprimir los datos de la lista doble de inicio a fin

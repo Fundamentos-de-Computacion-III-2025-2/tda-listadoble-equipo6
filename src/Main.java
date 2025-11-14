@@ -33,54 +33,45 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
-                                    "2. Insertar un elemento al final\n"+
-                                    "3. Insertar un elemento en orden\n"+ //TODO @ Junior Delgado
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @ Ernesto Velazquez
-                                    "5. Eliminar un elemento al final\n"+ //TODO @ Ernesto Velazquez
-                                    "6. Eliminar un elemento\n"+
-                                    "7. Buscar un elemento\n"+ //TODO @ Junior Delgado
-                                    "8. Mostrar los datos de inicio a fin\n"+ //HECHO POR PARRA OCHOA ALEX
-                                    "9. Mostrar los datos de fin a inicio\n"+ //HECHO POR PARRA OCHOA ALEX
+                            "1. Insertar un elemento al inicio\n"+ //
+                                    "2. Insertar un elemento al final\n"+ //
+                                    "3. Insertar un elemento en orden\n"+ //
+                                    "4. Eliminar un elemento al inicio\n"+ //
+                                    "5. Eliminar un elemento al final\n"+ //
+                                    "6. Eliminar un elemento\n"+ //
+                                    "7. Buscar un elemento\n"+ //
+                                    "8. Mostrar los datos de inicio a fin\n"+ //
+                                    "9. Mostrar los datos de fin a inicio\n"+ //
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @ Ernesto Velazquez
+                        case 1://Insertar un elemento al inicio
                             break;
                         case 2://Insertar un elemento al final
-                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                    "Ingresa el número a insertar al final:"));
-                            lista.insertarFinal(elemento);
                             break;
-                        case 3: //Insertar en orden TODO @  Junior Delgado
+                        case 3: //Insertar en orden
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a ordenar"));
+                            lista.insertarEnOrden(elemento);
                             break;
-                        case 4: //Eliminar al inicio TODO @ Ernesto Velazquez
+                        case 4: //Eliminar al inicio
                             break;
-                        case 5: //Eliminar al final TODO @ Ernesto Velazquez
+                        case 5: //Eliminar al final
                             break;
                         case 6: //Eliminar
-                            try {
-                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
-                                        "Ingresa el elemento a eliminar:"));
-
-                                int eliminado = lista.eliminarElemento(elemento);
-
-                                JOptionPane.showMessageDialog(null,
-                                        "Elemento eliminado: " + eliminado);
-
-                            } catch (RuntimeException e) {
-                                JOptionPane.showMessageDialog(null,
-                                        "Error: No se pudo eliminar: " + e.getMessage());
+                            break;
+                        case 7: //Buscar elemento
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a buscar"));
+                            boolean encontrado = lista.buscarElemento(elemento);
+                            if (encontrado) {
+                                JOptionPane.showMessageDialog(null, "Elemento encontrado");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Elemento no encontrado");
                             }
                             break;
-                        case 7: //Buscar elemento TODO @ Junior Delgado
-                            break;
-                        case 8: //MostrarLista PARRA
-                            System.out.println("Inicio a Fin");
+                        case 8: //MostrarLista
                             lista.mostrarInicioFin();
                             break;
-                        case 9: //MostrarLista PARRA
-                            System.out.println("Fin a Inicio");
+                        case 9: //MostrarLista
                             lista.mostrarFinInicio();
                             break;
                         case 10: //Salir
