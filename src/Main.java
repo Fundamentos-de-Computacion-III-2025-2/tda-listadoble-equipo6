@@ -39,8 +39,8 @@ public class Main {
                                     "5. Eliminar un elemento al final\n"+ //TODO @ Ernesto Velazquez
                                     "6. Eliminar un elemento\n"+ //TODO @ Iker Figueroa
                                     "7. Buscar un elemento\n"+ //TODO @ Junior Delgado
-                                    "8. Mostrar los datos de inicio a fin\n"+ //TODO @ Parra Ochoa Alex
-                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @ Parra Ochoa Alex
+                                    "8. Mostrar los datos de inicio a fin\n"+ //HECHO POR PARRA OCHOA ALEX
+                                    "9. Mostrar los datos de fin a inicio\n"+ //HECHO POR PARRA OCHOA ALEX
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
@@ -58,10 +58,12 @@ public class Main {
                             break;
                         case 7: //Buscar elemento TODO @ Junior Delgado
                             break;
-                        case 8: //MostrarLista TODO @ Parra Ochoa Alex
+                        case 8: //MostrarLista Inicio a Fin PARRA OCHOA ALEX
+                            System.out.println("Lista de Inicio a Fin");
                             lista.mostrarInicioFin();
                             break;
-                        case 9: //MostrarLista TODO @ Parra Ochoa Alex
+                        case 9: //MostrarLista Fin a Inicio PARRA OCHOA ALEX
+                            System.out.println("Lista de Fin a Inicio");
                             lista.mostrarFinInicio();
                             break;
                         case 10: //Salir
