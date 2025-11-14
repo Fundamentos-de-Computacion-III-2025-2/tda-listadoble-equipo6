@@ -95,18 +95,21 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de inicio a fin
     public void mostrarInicioFin() {
-        NodoDoble actual = inicio;
-        System.out.println();
-        while (actual != null) {
-            System.out.print(actual.dato +"-->");
-            actual = actual.siguiente;
-        }
+        NodoDoble actual = inicio; //movemos el puntero al inicio de la lista
+        System.out.println();  //con este print creamos una separacion en la siguiente linea al volver a imprimir
+        while (actual != null) { //mientras el puntero no haya pasado al final de la lista
+            System.out.print(actual.dato + " --> "); //se imprime el elemento que el puntero esta seleccionando
+            actual = actual.siguiente; //despues de imprimir, avanza al siguiente nodo
+        } //salimos del bucle cuando ya recorrimos la lista
     }
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio() {
-
+        NodoDoble actual = fin;  //movemos el puntero al final de la lista
+        System.out.println(); //con este print creamos una separacion en la siguiente linea al volver a imprimir
+        while (actual != null) { //mientras el puntero no haya pasado al final (inicio) de la lista
+            System.out.print(actual.dato + " --> "); //se imprime el elemento que el puntero esta seleccionando
+            actual = actual.anterior; //despues de imprimir, retrocede al nodo anterior
+        } //salimos del bucle cuando ya recorrimos la lista
     }
-
-
 }
