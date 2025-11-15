@@ -33,11 +33,11 @@ public class Main {
             try {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                         "1. Insertar un elemento al inicio\n" +
-                                "2. Insertar un elemento al final\n" + //TODO @ Iker Figueroa
+                                "2. Insertar un elemento al final\n" +
                                 "3. Insertar un elemento en orden\n" + //TODO @ Junior Delgado
                                 "4. Eliminar un elemento al inicio\n" +
                                 "5. Eliminar un elemento al final\n" +
-                                "6. Eliminar un elemento\n" + //TODO @ Iker Figueroa
+                                "6. Eliminar un elemento\n" +
                                 "7. Buscar un elemento\n" + //TODO @ Junior Delgado
                                 "8. Mostrar los datos de inicio a fin\n" +
                                 "9. Mostrar los datos de fin a inicio\n" +
@@ -49,8 +49,10 @@ public class Main {
                         lista.insertarInicio(elemento);
                         JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al inicio");
                         break;
-                    case 2://Insertar un elemento al final TODO @ iker figueroa
-                        break;
+                    case 2://Insertar un elemento al final
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                "Ingresa el número a insertar al final:"));
+                        lista.insertarFinal(elemento);
                     case 3: //Insertar en orden TODO @  Junior Delgado
                         break;
                     case 4:
@@ -69,7 +71,20 @@ public class Main {
                             JOptionPane.showMessageDialog(null, "La lista esta vacia, no se puede eliminar ");
                         }
                         break;
-                    case 6: //Eliminar TODO @ iker figueroa
+                    case 6: //Eliminar
+                        try {
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                    "Ingresa el elemento a eliminar:"));
+
+                            int eliminado = lista.eliminarElemento(elemento);
+
+                            JOptionPane.showMessageDialog(null,
+                                    "Elemento eliminado: " + eliminado);
+
+                        } catch (RuntimeException e) {
+                            JOptionPane.showMessageDialog(null,
+                                    "Error: No se pudo eliminar: " + e.getMessage());
+                        }
                         break;
                     case 7: //Buscar elemento TODO @ Junior Delgado
                         break;
