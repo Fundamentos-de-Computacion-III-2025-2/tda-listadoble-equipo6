@@ -34,11 +34,11 @@ public class Main {
                 opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                         "1. Insertar un elemento al inicio\n" +
                                 "2. Insertar un elemento al final\n" +
-                                "3. Insertar un elemento en orden\n" + //TODO @ Junior Delgado
+                                "3. Insertar un elemento en orden\n" +
                                 "4. Eliminar un elemento al inicio\n" +
                                 "5. Eliminar un elemento al final\n" +
                                 "6. Eliminar un elemento\n" +
-                                "7. Buscar un elemento\n" + //TODO @ Junior Delgado
+                                "7. Buscar un elemento\n" +
                                 "8. Mostrar los datos de inicio a fin\n" +
                                 "9. Mostrar los datos de fin a inicio\n" +
                                 "10. Salir\n",
@@ -53,7 +53,9 @@ public class Main {
                         elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                 "Ingresa el número a insertar al final:"));
                         lista.insertarFinal(elemento);
-                    case 3: //Insertar en orden TODO @  Junior Delgado
+                    case 3: //Insertar en orden
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a ordenar"));
+                        lista.insertarEnOrden(elemento);
                         break;
                     case 4:
                         elemento = lista.eliminarInicio();
@@ -87,6 +89,13 @@ public class Main {
                         }
                         break;
                     case 7: //Buscar elemento TODO @ Junior Delgado
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a buscar"));
+                        boolean encontrado = lista.buscarElemento(elemento);
+                        if (encontrado) {
+                            JOptionPane.showMessageDialog(null, "Elemento encontrado");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Elemento no encontrado");
+                        }
                         break;
                     case 8: //MostrarLista
                         lista.mostrarInicioFin();

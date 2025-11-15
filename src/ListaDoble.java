@@ -52,7 +52,31 @@ public class ListaDoble {
     se inserta al final */
 
     public void insertarEnOrden(int dato) {
+        NodoDoble nuevo = new NodoDoble(dato);
 
+        if (inicio==null){
+            inicio = fin = nuevo;
+        } else if (dato < inicio.dato){
+            nuevo.siguiente = inicio;
+            inicio.anterior = nuevo;
+            inicio = nuevo;
+        } else {
+            NodoDoble actual = inicio;
+            while (actual != null && actual.dato < dato){
+                actual = actual.siguiente;
+            }
+            if (actual == null){ //Insertar al final
+                fin.siguiente = nuevo;
+                nuevo.anterior = fin;
+                fin = nuevo;
+            } else { //Insertar antes de actual
+                NodoDoble anterior = actual.anterior;
+                anterior.siguiente = nuevo;
+                nuevo.anterior = anterior;
+                nuevo.siguiente = actual;
+                actual.anterior = nuevo;
+            }
+        }
     }
 
 
@@ -128,9 +152,14 @@ public class ListaDoble {
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento) {
-
+        NodoDoble actual = inicio;
+        while (actual != null) {
+            if (actual.dato == elemento) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
         return false;
-
     }
 
     //Imprimir los datos de la lista doble de inicio a fin
