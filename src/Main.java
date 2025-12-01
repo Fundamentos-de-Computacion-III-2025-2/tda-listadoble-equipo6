@@ -53,6 +53,7 @@ public class Main {
                         elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                 "Ingresa el número a insertar al final:"));
                         lista.insertarFinal(elemento);
+                        break;
                     case 3: //Insertar en orden
                         elemento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el elemento a ordenar"));
                         lista.insertarEnOrden(elemento);

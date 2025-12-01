@@ -33,14 +33,13 @@ public class ListaDoble {
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
         if(listaVacia()){
-            fin= new NodoDoble(dato);
-
+           insertarInicio(dato);
         }
         else {
-            fin.siguiente= new NodoDoble(dato);
-            new NodoDoble(dato).anterior=fin;
-
-
+            NodoDoble nuevo  = new NodoDoble(dato);
+            fin.siguiente= nuevo;
+            nuevo.anterior = fin;
+           fin = nuevo;
         }
 
     }
